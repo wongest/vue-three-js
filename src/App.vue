@@ -1,7 +1,19 @@
 <template>
-  <router-view/>
+  <div class="App">
+    <router-view></router-view>
+  </div>
 </template>
 
-<style>
+<script lang="ts">
+import { ref } from 'vue';
+export default {
+  name: 'App',
+  setup() {
+ 
+  }
+};
+</script>
+
+<style lang="scss" scoped>
 
 </style>

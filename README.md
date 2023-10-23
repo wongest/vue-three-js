@@ -1,24 +1,11 @@
-# vue-threejs
+# vue3-demo
 
-## Project setup
-```
-npm install
-```
+## 构建一个vue3 + ts项目
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+#### 使用vite搭建
+* 参考来源：https://juejin.cn/post/7036745610954801166
+* 分支：`feat/vite`
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### 自己从0搭建
+* 参考来源：https://juejin.cn/post/6844903833160646663
+* 分支：[feat/self](https://github.com/wongest/vue3-demo/tree/feat/self)
