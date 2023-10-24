@@ -31,6 +31,7 @@
     "babel-loader": "^8.2.5",
     "cache-loader": "^4.1.0",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "dart-sass": "^1.25.0",
     "file-loader": "^6.2.0",

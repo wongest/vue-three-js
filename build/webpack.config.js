@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { babelLoaderConf } = require('./utils.js')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -23,7 +24,10 @@ module.exports = {
     chunkFilename: 'js/[name].[hash:8].js',
   },
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts'],
+    alias: {
+      './public': path.resolve(__dirname, 'public'),
+    },
   },
   devServer: {
     static: './dist',
@@ -45,6 +49,19 @@ module.exports = {
         ]
       },
       {
+        test:/\.(png|jpg|jpeg)$/, //小于条件的图片采用base64。减少请求
+        exclude:"/node_modules/",//但是排除node_modules里面的图片
+        use:[
+          {
+            loader:"url-loader",
+            options:{
+              limit: 10*1024, //如果图片小于10k，就使用base64处理，
+              esModule:false, // url-loader默认采用ES6模块语法  html-loader使用commonJs  所以这里需要关闭es模块语法即可
+            }
+          }
+        ]
+      },
+      {
         test: /\.(ts|js)x?$/,
         use: [babelLoaderConf],
         exclude: /node_modules/,
@@ -60,6 +77,11 @@ module.exports = {
       title: 'three.js demo'  // index.html 模板内，通过 <%= htmlWebpackPlugin.options.title %> 拿到的变量
     }),
     new VueLoaderPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public', to: './public' },
+      ],
+    }),
     // new ProgressBarPlugin({
     //   format: '[:percent] [:bar]',
     //   clear: true,
