@@ -1,11 +1,8 @@
-# vue3-demo
+# 基于vue3的three.js练习
 
-## 构建一个vue3 + ts项目
-
-#### 使用vite搭建
-* 参考来源：https://juejin.cn/post/7036745610954801166
-* 分支：`feat/vite`
-
-#### 自己从0搭建
-* 参考来源：https://juejin.cn/post/6844903833160646663
-* 分支：[feat/self](https://github.com/wongest/vue3-demo/tree/feat/self)
+## 1. 基础
+### 1.1 几何体、材质
+### 1.2 直线光、投影到平面
+### 1.3 纹理
+#### 1.3.1 平面
+#### 1.3.2 立体
