@@ -9,11 +9,14 @@ import { ref } from 'vue';
 import * as THREE from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import floor from "../../img/Stylized_Stone_Floor_005_basecolor.jpg"
+import wall from "../../img/Gravel_001_BaseColor.jpg"
 export default {
   name: 'base3',
   setup() {
     // 1. 创建渲染器,指定渲染的分辨率和尺寸,然后添加到body中
     const renderer = new THREE.WebGLRenderer({ antialias: true });  // 抗锯齿
+    // 初始化纹理加载器
+    const textloader = new THREE.TextureLoader();
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.append(renderer.domElement);
@@ -43,7 +46,7 @@ export default {
     // 立方体几何体 width, height, depth 宽、高、深
     const geometry = new THREE.BoxGeometry(4, 4, 4);
     // MeshStandardMaterial 受灯光影响的材质
-    const material = new THREE.MeshStandardMaterial({ color: 'green' });
+    const material = new THREE.MeshStandardMaterial({ map: textloader.load(wall) });
     // 物体：几何形状和材质
     const cube = new THREE.Mesh(geometry, material as any);
     scene.add(cube);
@@ -70,8 +73,6 @@ export default {
     // 4. 
     // PlaneGeometry 平面几何体
     const planeGeometry = new THREE.PlaneGeometry(20, 20);
-    // 2. 初始化纹理加载器
-    const textloader = new THREE.TextureLoader();
     const planeMaterial = new THREE.MeshStandardMaterial({ map: textloader.load(floor) });
     const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial as any);
     planeMesh['rotation'].x = -0.5 * Math.PI;
