@@ -2,12 +2,14 @@ import * as VueRouter from 'vue-router';
 import Base1 from '../pages/base/1.vue'
 import Base2 from '../pages/base/2.vue'
 import Base3 from '../pages/base/3.vue'
+import Base4 from '../pages/base/4.vue'
 import About from '../pages/about/About.vue'
 
 const routes = [
   { path: '/', component: Base1 },
   { path: '/base2', component: Base2 },
   { path: '/base3', component: Base3 },
+  { path: '/base4', component: Base4 },
   { path: '/about', component: About },
 ]
 

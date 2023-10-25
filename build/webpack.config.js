@@ -27,6 +27,7 @@ module.exports = {
     extensions: ['.js', '.ts'],
     alias: {
       './public': path.resolve(__dirname, 'public'),
+      vue: path.resolve("./node_modules/vue"),
     },
   },
   devServer: {
